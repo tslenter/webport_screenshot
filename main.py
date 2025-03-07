@@ -60,6 +60,8 @@ def capture_screenshot(url, output_path):
     options.add_argument('--disable-http2')
     options.add_argument('--disable-https')
     options.add_argument("--disable-cache")
+    options.add_argument("--disable-usb-keyboard-detect")
+    options.add_argument("--disable-device-discovery-notifications")
     
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
@@ -103,4 +105,4 @@ def main(csv_file, scan_http, scan_https):
             print(f"Poort 80 is gesloten op {host}")
 
 if __name__ == "__main__":
-    main('hosts.csv', scan_http=True, scan_https=True)
+    main('hosts.csv', scan_http=True, scan_https=False)
